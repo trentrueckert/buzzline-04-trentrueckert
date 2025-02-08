@@ -1,15 +1,7 @@
 """
-json_consumer_case.py
+project_consumer_rueckert.py
 
-Consume json messages from a Kafka topic and visualize author counts in real-time.
-
-JSON is a set of key:value pairs. 
-
-Example serialized Kafka message
-"{\"message\": \"I love Python!\", \"author\": \"Eve\"}"
-
-Example JSON message (after deserialization) to be analyzed
-{"message": "I love Python!", "author": "Eve"}
+Consumes json messages from a Kafka topic and updates a real-time pie chart which displays the frequency of adjectives
 
 """
 
