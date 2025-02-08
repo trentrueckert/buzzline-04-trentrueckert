@@ -4,96 +4,45 @@ We can analyze and visualize different types of streaming data as the informatio
 
 ## New Additions to the Custom Consumer 
 
-## Task 1. Use Tools from Module 1 and 2
+Custom JSON Producer: 
+- Streams data to a file and a Kafka topic 
+- Generates random messages based on keywords integrated into the code
+- Function to assign a sentiment score to each generated message
+   
+Custom JSON Consumer:
+- Custom messages received in real-time from Kafka
+- Takes the category from each message 
+- Displays the percentage of the frequencies of the adjectives in a pie chart
+- Uses a dictionary to count and update the chart
+- Matplotlib plays a big role
+   
+
+## Use Tools from Module 1 and 2
 
 Before starting, ensure you have completed the setup tasks in <https://github.com/denisecase/buzzline-01-case> and <https://github.com/denisecase/buzzline-02-case> first. 
 Python 3.11 is required. 
 
-## Task 2. Copy This Example Project and Rename
+## Copy This Example Project and Rename
 
 Once the tools are installed, copy/fork this project into your GitHub account
 and create your own version of this project to run and experiment with. 
 Follow the instructions in [FORK-THIS-REPO.md](https://github.com/denisecase/buzzline-01-case/docs/FORK-THIS-REPO.md).
 
-OR: For more practice, add these example scripts or features to your earlier project. 
-You'll want to check requirements.txt, .env, and the consumers, producers, and util folders. 
-Use your README.md to record your workflow and commands. 
-    
 
-## Task 3. Manage Local Project Virtual Environment
+## Manage Local Project Virtual Environment
 
 Follow the instructions in [MANAGE-VENV.md](https://github.com/denisecase/buzzline-01-case/docs/MANAGE-VENV.md) to:
 1. Create your .venv
 2. Activate .venv
 3. Install the required dependencies using requirements.txt.
 
-## Task 4. Start Zookeeper and Kafka (2 Terminals)
-
-If Zookeeper and Kafka are not already running, you'll need to restart them.
-See instructions at [SETUP-KAFKA.md] to:
+## Start Zookeeper and Kafka (2 Terminals)
 
 1. Start Zookeeper Service ([link](https://github.com/denisecase/buzzline-02-case/blob/main/docs/SETUP-KAFKA.md#step-7-start-zookeeper-service-terminal-1))
 2. Start Kafka ([link](https://github.com/denisecase/buzzline-02-case/blob/main/docs/SETUP-KAFKA.md#step-8-start-kafka-terminal-2))
 
----
 
-## Task 5. Start a Basic (File-based, not Kafka) Streaming Application
-
-This will take two terminals:
-
-1. One to run the producer which writes to a file in the data folder. 
-2. Another to run the consumer which reads from the dynamically updated file. 
-
-### Producer Terminal
-
-Start the producer to generate the messages. 
-
-In VS Code, open a NEW terminal.
-Use the commands below to activate .venv, and start the producer. 
-
-Windows:
-
-```shell
-.venv\Scripts\activate
-py -m producers.basic_json_producer_case
-```
-
-Mac/Linux:
-```zsh
-source .venv/bin/activate
-python3 -m producers.basic_json_producer_case
-```
-
-### Consumer Terminal
-
-Start the associated consumer that will process and visualize the messages. 
-
-In VS Code, open a NEW terminal in your root project folder. 
-Use the commands below to activate .venv, and start the consumer. 
-
-Windows:
-```shell
-.venv\Scripts\activate
-py -m consumers.basic_json_consumer_case
-```
-
-Mac/Linux:
-```zsh
-source .venv/bin/activate
-python3 -m consumers.basic_json_consumer_case
-```
-
-### Review the Application Code
-
-Review the code for both the producer and the consumer. 
-Understand how the information is generated, written to a file, and read and processed. 
-Review the visualization code to see how the live chart is produced. 
-When done, remember to kill the associated terminals for the producer and consumer. 
-
-
----
-
-## Task 6. Start a (Kafka-based) JSON Streaming Application
+## Start a (Kafka-based) JSON Streaming Application
 
 This will take two terminals:
 
@@ -108,54 +57,6 @@ For each one, you will need to:
 5. Know the full name of the module you want to run. 
    - Look in the producers folder for json_producer_case.
    - Look in the consumers folder for json_consumer_case.
-
-
-### Review the Application Code
-
-Review the code for both the producer and the consumer. 
-Understand how the information is generated and written to a Kafka topic, and consumed from the topic and processed. 
-Review the visualization code to see how the live chart is produced. 
-
-Compare the non-Kafka JSON streaming application to the Kafka JSON streaming application.
-By organizing code into reusable functions, which functions can be reused? 
-Which functions must be updated based on the sharing mechanism? 
-What new functions/features must be added to work with a Kafka-based streaming system?
-
-When done, remember to kill the associated terminals for the producer and consumer. 
-
----
-
-## Task 7. Start a (Kafka-based) CSV Streaming Application
-
-This will take two terminals:
-
-1. One to run the producer which writes to a Kafka topic. 
-2. Another to run the consumer which reads from that Kafka topic.
-
-For each one, you will need to: 
-1. Open a new terminal. 
-2. Activate your .venv.
-3. Know the command that works on your machine to execute python (e.g. py or python3).
-4. Know how to use the -m (module flag to run your file as a module).
-5. Know the full name of the module you want to run. 
-   - Look in the producers folder for csv_producer_case.
-   - Look in the consumers folder for csv_consumer_case.
-
-### Review the Application Code
-
-Review the code for both the producer and the consumer. 
-Understand how the information is generated and written to a Kafka topic, and consumed from the topic and processed. 
-Review the visualization code to see how the live chart is produced. 
-
-Compare the JSON application to the CSV streaming application.
-By organizing code into reusable functions, which functions can be reused? 
-Which functions must be updated based on the type of data?
-How does the visualization code get changed based on the type of data and type of chart used?
-Which aspects are similar between the different types of data? 
-
-When done, remember to kill the associated terminals for the producer and consumer. 
-
----
 
 ## Possible Explorations
 
